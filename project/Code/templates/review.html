@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>review</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+             .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 30%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    </style>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
+      <div class="container">
+        <h1 class="card-header text-center" >ORDER DETAILS</h1>
+        <form method="post" action="/change" class="d-flex align-items-center">
+          <div class="card mx-auto">
+            {% for j in cart %}
+            <div class="container">
+              <h4><b>{{j['name']}}</b></h4>
+              <input type="hidden" value="{{j.products}}" name="remove">
+              <h6 class="card-text">price: {{j['price']}}</h6>
+              <h6 class="card-text">quantity: {{j['quantity']}}</h6>
+              <h6 class="card-text">total price: {{j['quantity']*j.price}}</h6>
+              <input type="radio" name="{{ loop.index }}"  value=1 >
+              <label for="select_{{ loop.index }}">select</label>
+              <input type="radio" name="{{ loop.index }}"  value=0 >
+              <label for="remove_{{ loop.index }}">reomve</label>
+            </div>
+            {% endfor %}
+            <h3  class="card-text">grand_total: {{grand_total}}</h6>
+            <button type="submit" class="btn btn-success">BUY</button>
+          </div>
+        </form>
+      </div>
+  </body>
+</html>

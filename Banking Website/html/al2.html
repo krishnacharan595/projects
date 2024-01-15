@@ -1,0 +1,37 @@
+<html><head></head>
+<body>
+<script>
+if(confirm('Please check your account number')){
+	location.href='login.html';
+}else{
+	location.href='aco.html';
+
+}
+</script>
+</body>
+</html>
+
+
+
+
+$query007 ="select mail from customer where acno ='$acno';";
+$res007=mysqli_query($connect,$query007);
+$row007=$res007->fetch_assoc();
+$mail=$row007["mail"];
+
+
+
+
+
+echo "<html><head></head>
+<body>
+<script>
+if(confirm('account already exist return lo login page')){
+	location.href='login.html';
+}else{
+}
+</script>
+</body>
+</html>";
+
+			

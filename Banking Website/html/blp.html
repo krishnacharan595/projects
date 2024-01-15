@@ -1,0 +1,74 @@
+<html>
+<title>BUSINESS LOAN PAYMENT</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('blp.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+<body>
+
+<h2 style="text-align: center; ">BUSSINESS LOAN PAYMENT FORM:</h2>
+<table  align="center" cellpadding="15">
+
+<form id="form" method="post" action="blp.php" style="text-align: center;">
+ <body style="background-color:orange;">
+<tr>
+ <td><label for="name">Enter your name:</label></td>
+<td><input type="name" id="name" name="name" placeholder="Enter Your Name:" required></td>
+</tr><tr>
+ <td><label for="name">Enter account number:</label></td>
+<td><input type="number" id="acnum" name="acnum" placeholder="Enter Your ac num " required></td>
+</tr><tr>
+<td><label for="amountrs">Amount in  Rupees:</label></td>
+<td><input type="number" id="amountrs" name="amountrs" placeholder="Enter Amount in rupees" required></td>
+</tr><tr>
+
+<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input  type="submit" name="Submit" value="PAY"></td>
+<td><button><a href="main.html">cancel</a></button></td>
+</tr>
+</table>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b><span id="em" style="color: red"></span>
+</form>
+<script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+        let name = document.getElementById("name").value.trim();
+        let acno = document.getElementById("acnum").value.trim();
+        let name_validity = true;
+        let number_validity = true;
+        if (name == "") {
+          document.getElementById("em").innerText = "Name cannot be empty";
+          name_validity = false;
+          return;
+        }
+        if (/\d/.test(name)) {
+          document.getElementById("em").innerText = "Name cannot contain digits";
+          name_validity = false;
+          return;
+        }
+        if (name.length < 3) {
+          document.getElementById("em").innerText = "Name cannot be lessthan 3 Characters";
+          name_validity = false;
+          return;
+        }
+                if (acno.length != 12) {
+          document.getElementById("em").innerText = "account number should be  12 digits";
+          number_validity = false;
+          return;
+        }
+        
+        if (name_validity && number_validity) {
+          form.submit();
+		  
+        }
+      }
+    </script>
+
+</body>
+</html>

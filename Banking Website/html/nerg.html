@@ -1,0 +1,115 @@
+<html>
+<title>NEW NET BANKING REGISTRATION</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('unlock.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+<body style="text-align:center;background-color:lightgrey;">
+<table  align="center" cellpadding="15">
+<h2></h2>
+<form id="form" method="post" action="np.php">
+<input type="hidden" id="ncusid" name="ncusid">
+<h1 align="center" style="background-color:tomoto;"<small>NEW  REGISTRATION FOR NET BANKING:</small></u></h1>
+<tr>
+  <td><label for="anum">Enter ac num:</label></td>
+<td><input type="number" id="anum" name="anum" placeholder="Enter Your ac num " required></td>
+</tr><tr><tr><tr>
+  <td><label for="dbnu">Enter debit card num:</label></td>
+<td><input type="number" id="dbnu" name="dbnu" placeholder="Enter Your ac num " required></td>
+</tr><tr>
+<td><label for="telnum">Registed mobile no:</label></td>
+<td><input type="number" id="telnum" name="telnum" placeholder="Enter rigisted mobile num" required ></td>
+</tr>	
+<tr>
+<td><label for="cusid">create password:</label></td>
+<td><input type="password" id="paswd" name="paswd" placeholder="Enter rigisted mobile num" required ></td>
+</tr>
+<tr>
+<td><label for="cusid">re-enter password:</label></td>
+<td><input type="password" id="cpaswd" name="cpaswd" placeholder="Enter rigisted mobile num" required ></td>
+</tr>
+
+<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="Submit" value="I Agree"></td>
+<td><button><a href="main.html">cancel</a></button></td>
+</tr><tr>
+</table>
+<b><span id="em" style="color: red"></span>
+ 
+</form>
+<script>       x=Math.floor(Math.random() * (99999999 - 11111111)) + 11111111;
+document.getElementById("ncusid").value=x;
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+        let anum = document.getElementById("anum").value.trim();
+        let dbnu = document.getElementById("dbnu").value.trim();
+
+        let telnum = document.getElementById("telnum").value.trim();
+        let paswd = document.getElementById("paswd").value.trim();
+        let cpaswd = document.getElementById("cpaswd").value.trim();
+
+
+        let name_validity = true;
+        let number_validity = true;
+   
+                if (anum.length != 12) {
+          document.getElementById("em").innerText = "account number should be  12 digits";
+          number_validity = false;
+          return;
+        }
+            if (dbnu.length != 12) {
+          document.getElementById("em").innerText = "debit card  number should be  12 digits";
+          number_validity = false;
+          return;
+        }
+      
+   	if (telnum.length != 10) {
+          document.getElementById("em").innerText = "telephone number should be  10 digits";
+          number_validity = false;
+          return;
+        }
+        if (!/[a-z]+/.test(paswd)) {
+          document.getElementById("em").innerText =
+            "Password must contain one lowercase letter";
+          number_valid = false;
+          return;
+        }
+        if (!/[A-Z]+/.test(paswd)) {
+          document.getElementById("em").innerText =
+            "Password must contain one uppercase letter";
+          number_valid = false;
+          return;
+        }
+        if (!/[@#&-]+/.test(paswd)) {
+          document.getElementById("em").innerText =
+            "Password must contain one Special Character";
+          number_valid = false;
+          return;
+        }
+  if (paswd.length!=8) {
+          document.getElementById("em").innerText =
+            "Password must contain 8 characters Character";
+          number_valid = false;
+          return;
+        }if (cpaswd!=paswd) {
+          document.getElementById("em").innerText =
+            "Password does not match";
+          number_valid = false;
+          return;
+        }
+
+        if (name_validity && number_validity) {
+          form.submit();
+		  
+        }
+      }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+<title>SAVINGS ACCOUNT DEPOSIT</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('sdepos.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+<body style="text-align:center;background-color:lightgrey;">
+<table  align="center" cellpadding="15">
+<h2></h2>
+<form id="form" method="post" action="sdepos.php">
+<h1 align="center" style="background-color:tomoto;"<small>SAVINGS ACCOUNT MONEY DEPOSIT APLICATION :</small></u></h1>
+<tr>
+<td><label for="uname">enter your name:</label></td>
+<td><input type="text" id="uname" name="uname" placeholder="Enter your Name" required ></td>
+</tr>
+<tr>
+  <td><label for="anum">Enter ac num:</label></td>
+<td><input type="number" id="anum" name="anum" placeholder="Enter Your ac num " required></td>
+</tr>
+<tr>
+<td><label for="uname">Amount to be deposited in Rupees::</label></td>
+<td><input type="text" id="amountrs" name="amountrs" placeholder="Enter rigisted mobile num" required ></td>
+</tr><tr>
+<td><label for="telnum">Registed mobile no:</label></td>
+<td><input type="number" id="telnum" name="telnum" placeholder="Enter rigisted mobile num" required ></td>
+</tr>
+
+<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="Submit" value="I Agree"></td>
+<td><button><a href="main.html">cancel</a></button></td>
+</tr><tr>
+</table>
+<b><span id="em" style="color: red"></span>
+ 
+</form>
+<script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+        let uname = document.getElementById("uname").value.trim();
+
+        let anum = document.getElementById("anum").value.trim();
+
+        let telnum = document.getElementById("telnum").value.trim();
+
+
+        let name_validity = true;
+        let number_validity = true;
+   
+if (uname == "") {
+          document.getElementById("em").innerText = "Name cannot be empty";
+          name_validity = false;
+          return;
+        }
+        if (/\d/.test(uname)) {
+          document.getElementById("em").innerText = "Name cannot contain digits";
+          name_validity = false;
+          return;
+        }
+        if (uname.length < 3) {
+          document.getElementById("em").innerText = "Name cannot be lessthan 3 Characters";
+          name_validity = false;
+          return;
+        }
+		
+                if (anum.length != 12) {
+          document.getElementById("em").innerText = "account number should be  12 digits";
+          number_validity = false;
+          return;
+        }
+         
+   	if (telnum.length != 10) {
+          document.getElementById("em").innerText = "telephone number should be  10 digits";
+          number_validity = false;
+          return;
+        }
+
+        if (name_validity && number_validity) {
+          form.submit();
+		  
+        }
+      }
+    </script>
+
+</body>
+</html>

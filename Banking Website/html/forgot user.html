@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>NET BANKKING USERNAME</title>
+<link rel="icon" href="logo1" type="image/icon type">
+    <head>
+<style>
+body {
+  background-image: url('for.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style></head>
+<form id="form" method="post" action="fu.php">
+    <body style="text-align:center;background:#ffffcc">
+
+        <h1>FORGET USER</h1><br>
+      
+    
+        <table  align="center" cellpadding="15">
+        
+                
+                <tr>
+                    <td><label for="acc no">ACCOUNT NUMBER:</label></td>
+                    <td><input type="number" name="acno" id="A" placeholder="Enter your account number"></td>
+                </tr>
+		<tr>
+                    <td><label for="telno">PHONE/MOBILE NUMBER:</label></td>
+                    <td><input type="number" name="teleno" id="T" placeholder="Enter your phone number"></td>
+                </tr>
+		&nbsp <tr>
+		<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="submit"></td>
+<td><button><a href="main.html">cancel</a></button></td>
+</tr>
+
+		</table>
+<br>
+<br><b><span id="em" style="color: red"></span>
+            </form>
+<script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+
+
+        let A  = document.getElementById("A").value.trim();
+        let T = document.getElementById("T").value.trim();	
+
+        let number_validity = true;
+
+
+        if (A.length != 12) {
+          document.getElementById("em").innerText = "account number should be  12 digits";
+          number_validity = false;
+          return;
+}
+  	if (T.length != 10) {
+          document.getElementById("em").innerText = "telephone number should be  10 digits";
+          number_validity = false;
+          return;
+        }
+        if (number_validity) {
+          form.submit();
+		  
+        }
+      }
+    </script>
+    </body>
+</html>

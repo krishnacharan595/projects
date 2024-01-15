@@ -1,0 +1,190 @@
+<html>
+<title>NEW REGISTRATION</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('aco.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+<h2 style="text-align: center; ">NEW ACCOUNT OPENING FORM:</h2>
+
+<h2></h2>
+<form id="form" action="aco.php" method="post" style="text-align: center; ">
+<input type="hidden" id="acno" name="acno">
+
+ <body style="background-color:lightblue;">
+<table  align="center" cellpadding="10">
+<tr> 
+<td><label for="name">Enter Applicant full name:</label></td>
+<td><input type="text" id="name" name="name" placeholder="Enter Your full name " required></td>
+</tr><tr>
+<td>Gender:</td>
+<td><input type="radio" name="gender" value="male" class="gender">MALE&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="radio" name="gender"value="female"class="gender">FEMALE</td>
+</tr><tr>
+<td><label for="dob">DOB:</label></td>
+<td><input type="date" id="dob" name="dob" placeholder="Enter DOB" required></td>
+</tr><tr>
+<td><label for="fname">Enter Applicant  Father name:</label></td>
+<td><input type="text" id="fname" name="fname" placeholder="Enter Your Father name:" required></td>
+</tr><tr>
+<td><label for="anum"> Applicant AADHAAR card num*:</label></td>
+<td><input type="number" id="anum" name="anum" placeholder="Ente aadhar number "required ></td>
+</tr><tr>
+<td><label for="pnum">Applicant PAN card num*:</label></td>
+<td><input type="text" id="pnum" name="pnum" placeholder="Enter PAN number "required ></td>
+</tr><tr>
+<td><label for="telnum">Applicant mobile no:</label></td>
+<td><input type="number" id="telnum" name="telnum" placeholder="Enter rigisted mobile num" required ></td>
+</tr><tr>
+<td><label for="mail">Applicant Mail:</label></td>
+<td><input type="mail" id="mail" name="mail" placeholder="Enter Your Email:" required><br></br></td>
+</tr><tr>
+<td>Address of Applicant*:</td>
+<td><textarea rows="5" cols="30" id="addr" name="addr"></textarea></td>
+</tr>
+<tr>
+<br>
+<td><label for="name">create password:</label></td>
+<td><input type="password" id="paswd" name="paswd" placeholder="Enter Your password " required></td>
+</tr><tr>
+<td><label for="name">re-enter your password:</label></td>
+<td><input type="password" id="cpaswd" name="cpaswd" placeholder="Re-enter your password " required></td>
+</tr><tr>
+<br>
+<td><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input  type="submit" name="Submit" value="Create account">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button><a href="login.html">cancel</a></button>	</td>
+
+
+<td></td>
+</tr><tr>
+</table>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b><span id="em" style="color: red"></span>
+</form>
+<script>
+x=Math.floor(Math.random() * (999999999999 - 111111111111)) + 111111111111;
+document.getElementById("acno").value=x;
+ let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+		        let name = document.getElementById("name").value.trim();
+        let fname = document.getElementById("fname").value.trim();
+        let anum = document.getElementById("anum").value.trim();
+        let pnum = document.getElementById("pnum").value.trim();
+        let telnum = document.getElementById("telnum").value.trim();
+        let mail = document.getElementById("mail").value.trim();
+        let addr = document.getElementById("addr").value.trim();
+	            let anco = document.getElementById("acno").value.trim();
+        let paswd = document.getElementById("paswd").value.trim();
+        let cpaswd = document.getElementById("cpaswd").value.trim();
+		
+let name_validity = true;
+        let paswd_validity = true;
+	  	 let email_validity = true;
+
+
+		if (name == "") {
+          document.getElementById("em").innerText = "Name cannot be empty";
+          name_validity = false;
+          return;
+        }
+        if (/\d/.test(name)) {
+          document.getElementById("em").innerText = "Name cannot contain digits";
+          name_validity = false;
+          return;
+        }
+        if (name.length < 3) {
+          document.getElementById("em").innerText = "Name cannot be lessthan 3 Characters";
+          name_validity = false;
+          return;
+        }
+		if (fname == "") {
+          document.getElementById("em").innerText = "father Name cannot be empty";
+          name_validity = false;
+          return;
+        }
+        if (/\d/.test(fname)) {
+          document.getElementById("em").innerText = "fatherName cannot contain digits";
+          name_validity = false;
+          return;
+        }
+        if (fname.length < 3) {
+          document.getElementById("em").innerText = "father Name cannot be lessthan 3 Characters";
+          name_validity = false;
+          return;
+        }
+ if (anum.length != 12) {
+          document.getElementById("em").innerText = "aadhar number should be 12 digits";
+          name_validity = false;
+          return;
+        }
+ if (pnum.length != 10) {
+          document.getElementById("em").innerText = "pan card number should be 10 digits";
+          name_validity = false;
+          return;
+        }
+ if (telnum.length != 10) {
+          document.getElementById("em").innerText = "mobile number should be 10 digits";
+          name_validity = false;
+          return;
+        }
+if (!/[\w.]+@[\w.].[\w.]/.test(mail)){
+	    document.getElementById("em").innerText = "enter a valid email id eg:xyz@xyz.xyz";
+          is_email_valid = false;
+          return;
+	  }
+ if (addr == "") {
+          document.getElementById("em").innerText = "address	 cannot be empty";
+          paswd_validity = false;
+          return;
+        }
+ if (paswd == "") {
+          document.getElementById("em").innerText = "Password cannot be empty";
+          paswd_validity = false;
+          return;
+        }
+        if (paswd.length < 8) {
+          document.getElementById("em").innerText = "Password should be greater than 8 Characters";
+          paswd_validity = false;
+          return;
+        }
+        if (!/[a-z]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one lowercase letter";
+          paswd_validity = false;
+          return;
+        }
+        if (!/[A-Z]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one uppercase letter";
+          paswd_validity = false;
+          return;
+        }
+        if (!/[@#$&-]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one Special character";
+          paswd_validity = false;
+          return;
+        }
+  	  if (!/[0-9]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one digit";
+          paswd_validity = false;
+          return;
+        }
+        if (paswd != cpaswd) {
+          document.getElementById("em").innerText = "Entered password did not matched";
+          paswd_validity = false;
+          return;
+        }
+	if (name_validity && paswd_validity && email_validity) {
+          form.submit();
+		  
+        }
+
+
+
+
+}
+</script>
+</body>
+</html>
+

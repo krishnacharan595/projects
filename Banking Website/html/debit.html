@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><title>DEBIT CARD APPLICATION</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('debit.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+ <body style="background-color:lightblue;">
+<table  align="center" cellpadding="15">
+<h2 style="text-align:center">DEBITCARD APPLICATION:</h2>
+
+<form id="form" action="debit.php" method="post" style="text-align:center">
+<tr>
+  <td><label for="name">Enter your full name:</label></td>
+<td><input type="text" id="name" name="name" placeholder="Enter Your Name " required></td>
+</tr><tr>
+<td><label for="debit">Enter your a/c numner:</label></td>
+
+<td><input type="number" id="debit" name="debit" placeholder="Enter Your account number:" required></td>
+</tr><tr>
+<td><label for="telephone">Enter your Phone Number:</label></td>
+
+<td><input type="number" id="telephone" name="telephone" placeholder="Enter Registered mobile number" required ></td>
+</tr><tr>
+<td><label for="custim">Enter your Aadhar Number:</label></td>
+
+<td><input type="number" id="aadhar" name="aadhar" placeholder="Enter your Aadhar Number "required ></td>
+
+<td></tr><tr>
+<td><label for="custim">Enter your DOB:</label></td>
+
+<td><input type="date" id="dob" name="dob" placeholder="Enter your Date of Birth "required ></td>
+</tr><tr>
+<td><label for="custim">Enter your Residence Address:</label></td>
+<input type="hidden" id="dbno" name="dbno">
+<td><input type="custom" id="addr" name="addr" placeholder="Enter your Address "required ></td>
+</tr>
+<b><span id="em" style="color: red"></span>
+<tr>
+<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="Submit" value="I Agree"></td>
+<td><button><a href="main.html">cancel</a></button></td>
+</tr><tr>
+</table>
+
+</form>
+   <script>
+ let x = Math.floor((Math.random() * 1000000000000) + 1);
+document.getElementById("dbno").value = x;
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+        let name = document.getElementById("name").value.trim();
+        let debit = document.getElementById("debit").value.trim();
+
+        let telephone = document.getElementById("telephone").value.trim();
+        let aadhar = document.getElementById("aadhar").value.trim();
+        let dob = document.getElementById("dob").value.trim();
+        let name_validity = true;
+        let number_validity = true;
+        if (name == "") {
+          document.getElementById("em").innerText = "Name cannot be empty";
+          name_validity = false;
+          return;
+        }
+        if (/\d/.test(name)) {
+          document.getElementById("em").innerText = "Name cannot contain digits";
+          name_validity = false;
+          return;
+        }
+        if (name.length < 3) {
+          document.getElementById("em").innerText = "Name cannot be lessthan 3 Characters";
+          name_validity = false;
+          return;
+        }
+
+        if (debit.length != 12) {
+          document.getElementById("em").innerText = "account number should be  12 digits";
+          number_validity = false;
+          return;
+        }
+   	if (telephone.length != 10) {
+          document.getElementById("em").innerText = "telephone number should be  10 digits";
+          number_validity = false;
+          return;
+        }
+   if (aadhar.length != 12) {
+          document.getElementById("em").innerText = "aadhar number should be 12 digits";
+          number_validity = false;
+          return;
+}
+    if (addr == "") {
+          document.getElementById("em").innerText = "address cannot be empty";
+          name_validity = false;
+          return;
+        }
+
+        if (name_validity && number_validity) {
+          form.submit();
+		  
+        }
+      }
+    </script>
+
+</body>
+</html>

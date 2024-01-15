@@ -1,0 +1,92 @@
+<!Doctype html>
+<html>
+<title> OTP VERIFICATION</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<head>
+
+	<meta charset="utf-8">
+	<title>
+	HDFC BANK
+	</title>
+<style>
+body {
+  background-image: url('login1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+	.center{display:block;
+		margin-left:auto;
+		margin-right:auto;
+		width=250px;
+		height=150px;
+		}
+</style>
+</head>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<body style="background-color:#d1d1e0;text-align:center">
+<fieldset >
+
+			<legend style="text-align: center;">
+
+	<h1 style ="text-align:center;"><h1> OTP VALIDATION </h1></legend>
+<table  align="center" cellpadding="10">
+	<form action="login1.php" id="form" method="post">
+
+ 			
+			<tr>
+                    <td><label for="acc">RE-ACCOUNT NUMBER:</label></td>
+                    <td><input style="padding:8px 35px" type="text" name="acc" id="acc" placeholder="Enter account number"></td>
+                </tr>
+			<tr>
+                    <td><label for="otpn">ENTER OTP:</label></td>
+                    <td><input style="padding:8px 35px" type="text" name="otpn" id="otpn" placeholder="Enter your name"></td>
+                </tr>
+
+</table>		
+<br>
+&emsp;&emsp; <button >log in into account </button>
+<br><br>
+<b><span id="em" style="color: red"></span><br><br>
+</form>
+<br></fieldset>
+<script>
+     let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+        let acno = document.getElementById("acc").value.trim();
+        let otp = document.getElementById("otpn").value.trim();
+
+        let a_valid = true;
+
+ if (acno.length != 12) {
+          document.getElementById("em").innerText = "Account number should be 12 digits";
+          name_validity = false;
+          return;
+        }
+	if(otp.length !=6){
+		document.getElementById("em").innerText="OTP should be 6 digits";
+		a_valid=false;
+		return;
+}
+	if(a_valid){
+		form.submit();
+}
+}
+
+        
+    </script>
+
+</body>
+</html>

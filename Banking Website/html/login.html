@@ -1,0 +1,124 @@
+<!Doctype html>
+<html>
+<title>LOGIN</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('login.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+<head>
+	<meta charset="utf-8">
+	<title>
+	HDFC BANK
+	</title>
+</head><br><br><br><br><br><br><br><br>
+<body style="background-color:#d1d1e0;text-align:center">
+<fieldset >
+
+			<legend style="text-align: center;">
+
+	<h1 style ="text-align:center;"><h1> LOGIN </h1></legend>
+<table  align="center" cellpadding="10">
+	<form action="otp.php" id="form" method="post">
+<input name="otp" id="otp" type="hidden">
+			<tr>
+                    <td><label for="acc">USER NAME:</label></td>
+                    <td><input style="padding:8px 35px" type="text" name="uname" id="uname" placeholder="Enter user name"></td>
+                </tr>
+ 			
+			<tr>
+                    <td><label for="acc">ACCOUNT NUMBER:</label></td>
+                    <td><input style="padding:8px 35px" type="number" name="acc" id="acc" placeholder="Enter account number"></td>
+                </tr>
+			<tr>
+                    <td><label for="otpn">PASSWORD :</label></td>
+                    <td><input style="padding:8px 35px" type="password" name="paswd" id="paswd" placeholder="Enter your password"></td>
+                </tr>
+
+</table>		
+<br>
+&emsp;&emsp; <button >send otp </button>
+<br><br>
+&emsp;&emsp;<b><span id="em" style="color: red"></span><br><br>
+</form>
+&emsp;&emsp;&emsp;<a href="forget.html">forget password</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="aco.html">create new account</a>
+
+<br></fieldset>
+<script>
+        x=Math.floor(Math.random() * (999999 - 111111)) + 111111;
+document.getElementById("otp").value=x;
+     let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+	   let name = document.getElementById("uname").value.trim();
+        let acno = document.getElementById("acc").value.trim();
+        let paswd = document.getElementById("paswd").value.trim();
+
+        let a_valid = true;
+if (name == "") {
+          document.getElementById("em").innerText = "Name cannot be empty";
+          a_valid = false;
+          return;
+        }
+        if (/\d/.test(name)) {
+          document.getElementById("em").innerText = "Name cannot contain digits";
+          a_valid = false;
+          return;
+        }
+        if (name.length < 3) {
+          document.getElementById("em").innerText = "Name cannot be lessthan 3 Characters";
+          a_valid = false;
+          return;
+        }
+
+ if (acno.length != 12) {
+          document.getElementById("em").innerText = "Account number should be 12 digits";
+          a_valid = false;
+          return;
+        }
+if (paswd == "") {
+          document.getElementById("em").innerText = "Password cannot be empty";
+          paswd_validity = false;
+          return;
+        }
+        if (paswd.length < 8) {
+          document.getElementById("em").innerText = "Password should be greater than 8 Characters";
+          paswd_validity = false;
+          return;
+        }
+        if (!/[a-z]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one lowercase letter";
+          paswd_validity = false;
+          return;
+        }
+        if (!/[A-Z]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one uppercase letter";
+          paswd_validity = false;
+          return;
+        }
+        if (!/[@#$&-]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one Special character";
+          paswd_validity = false;
+          return;
+        }
+  	  if (!/[0-9]+/.test(paswd)) {
+          document.getElementById("em").innerText = "Password should contain atleast one digit";
+          paswd_validity = false;
+          return;
+        }
+	if(a_valid){
+		form.submit();
+}
+}
+
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<title>PROFILE</title>
+<link rel="icon" href="logo1" type="image/icon type">
+<style>
+body {
+  background-image: url('profile.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+<h2 style="text-align: center; ">PROFILE STATUS:</h2>
+<body style="text-align:center;background-color:lightblue;">
+<form id="form" method="post" action="profile.php"><br><br><br><br><br><br><br><br><br><br><br><br><br> 	<br><br><br><br>
+<label for="acno">Enter your account number</label>
+<input type="number" name="acno" placeholder="account number" id="acno">
+<input type="submit" value="submit"><button><a href="main.html">cancel</a></button>
+<br>
+<br><b><span id="em" style="color: red"></span>
+</form>
+ <script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {e.preventDefault();
+      validate();});
+      function validate() {
+        let acno = document.getElementById("acno").value.trim();
+  
+        let name_validity = true;
+  
+       
+
+        if (acno.length != 12) {
+          document.getElementById("em").innerText = "account number should be  12 digits";
+          number_validity = false;
+          return;
+        }
+
+        if (name_validity) {
+          form.submit();
+		  
+        }
+      }
+    </script>
+</body>
+</html>
